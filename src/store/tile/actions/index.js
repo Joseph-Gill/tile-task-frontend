@@ -17,3 +17,15 @@ export const getTilesAction = () => async (dispatch) => {
         console.log('Error getting all tiles>', e)
     }
 }
+
+export const createTileAction = tileInfo => async (dispatch) => {
+    try {
+        const response = await Axios.post(`/tiles/tile/create/`, tileInfo)
+        if (response.status === 201) {
+            await dispatch(getTilesAction())
+            return response.data
+        }
+    } catch (e) {
+        console.log('Error creating new tile>', e)
+    }
+}

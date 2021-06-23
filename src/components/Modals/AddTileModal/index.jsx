@@ -2,11 +2,13 @@ import React, {forwardRef, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import DatePicker from 'react-datepicker'
 import ModalExternalContainer from '../ModalComponents/ModalExternalContainer'
+import {createTileAction} from '../../../store/tile/actions'
+import {convertDate} from '../../../helpers'
+import calender from '../../../assets/icons/calendar_icon.svg'
 import {ModalTitle} from '../../../style/titles'
 import {ModalSelect} from '../../../style/selects'
 import {CancelButton} from '../../../style/buttons'
 import {ModalButtonContainer} from '../../../style/containers'
-import calender from '../../../assets/icons/calendar_icon.svg'
 import {AddTileInternalContainer, CreateTileButton, DateInputContainer, DateLabel, DateLabelContainer} from './styles'
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -21,8 +23,15 @@ const AddTileModal = ({showAddTileModal, setShowAddTileModal}) => {
     })
 
     const handleCreateTileClick = async () => {
+        const tileData = {
+            launch_date: convertDate(newTileInfo.launch_date),
+            status: newTileInfo.status
+        }
         setLoading(true)
-
+        const response = await dispatch(createTileAction(tileData))
+        if (response) {
+            setShowAddTileModal(false)
+        }
     }
 
     // This enables the ability to style the react-datepicker input component, by styling this component
