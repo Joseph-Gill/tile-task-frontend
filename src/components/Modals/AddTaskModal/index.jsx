@@ -3,6 +3,10 @@ import ModalExternalContainer from '../ModalComponents/ModalExternalContainer'
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import {createTaskAction} from '../../../store/task/actions'
+import {BaseButton, CancelButton} from '../../../style/buttons'
+import {ModalTitle} from '../../../style/titles'
+import {ModalSelect} from '../../../style/selects'
+import {ModalInput} from '../../../style/inputs'
 
 
 const AddTaskInternalContainer = styled.div`
@@ -12,12 +16,36 @@ const AddTaskInternalContainer = styled.div`
     border-radius: ${props => props.theme.borderRadius};
     display: flex;
     flex-direction: column;
-    height: 313px;
+    height: 500px;
     justify-content: space-between;
     padding: 20px;
-    width: 400px;
+    width: 375px;
 `
 
+const ModalButtonContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+`
+
+export const CreateTaskButton = styled(BaseButton)`
+    background: ${props => props.theme.primaryBlue};
+    height: 45px;
+    width: 80px;
+`
+
+export const ModalTextArea = styled.textarea`
+    background: ${props => props.theme.graySix};
+    border: 1px solid ${props => props.theme.grayFour};
+    border-radius: ${props => props.theme.borderRadius};
+    font-size: 14px;
+    line-height: 19px;
+    height: 200px;
+    width: 100%;
+    padding: 10px;
+    resize: none;
+`
 
 const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
     const dispatch = useDispatch()
@@ -42,14 +70,14 @@ const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
             showModalView={showAddTaskModal}
         >
             <AddTaskInternalContainer>
-                <div>Add a new Task</div>
-                <input
+                <ModalTitle>Add a new Task</ModalTitle>
+                <ModalInput
                     onChange={(e) => setNewTaskInfo({...newTaskInfo, title: e.target.value})}
                     placeholder='Title'
                     type='text'
                     value={newTaskInfo.title}
                 />
-                <select
+                <ModalSelect
                     onChange={(e) => setNewTaskInfo({...newTaskInfo, type: e.target.value})}
                     value={newTaskInfo.type}
                 >
@@ -57,16 +85,16 @@ const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
                     <option value='SURVEY'>SURVEY</option>
                     <option value='DISCUSSION'>DISCUSSION</option>
                     <option value='DIARY'>DIARY</option>
-                </select>
-                <textarea
+                </ModalSelect>
+                <ModalTextArea
                     onChange={(e) => setNewTaskInfo({...newTaskInfo, description: e.target.value})}
                     placeholder='Description'
                     value={newTaskInfo.description}
                 />
-                <div>
-                    <button disabled={loading} onClick={handleCreateTaskClick}>Create</button>
-                    <button disabled={loading} onClick={() => setShowAddTaskModal(false)}>Cancel</button>
-                </div>
+                <ModalButtonContainer>
+                    <CreateTaskButton disabled={loading} onClick={handleCreateTaskClick}>Create</CreateTaskButton>
+                    <CancelButton disabled={loading} onClick={() => setShowAddTaskModal(false)}>Cancel</CancelButton>
+                </ModalButtonContainer>
             </AddTaskInternalContainer>
         </ModalExternalContainer>
     )
