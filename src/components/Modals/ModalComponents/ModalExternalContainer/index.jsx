@@ -5,7 +5,6 @@ import {ExternalModalContainer} from './styles'
 const ModalExternalContainer = ({children, setModalView, showModalView}) => {
     //Ref used by external modal container to close if user clicks outside modal
     const node = useRef()
-
     // Handles closing the modal if the user clicks anywhere outside of the modal
     useEffect(() => {
         const handleClickOutside = e => {

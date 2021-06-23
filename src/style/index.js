@@ -58,5 +58,6 @@ export const defaultTheme = {
     // Fonts
     robotoFontFamily: 'Roboto, sans-serif',
     // Border Radius
+    borderRadius: '.75rem',
     buttonBorderRadius: '1.5rem',
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import Loading from '../Loading'
+import AddTaskModal from '../Modals/AddTaskModal'
 import {createDateInfo} from '../../helpers'
 import previousTask from '../../assets/icons/scroll_left_icon.svg'
 import nextTask from '../../assets/icons/scroll_right_icon.svg'
@@ -12,13 +13,16 @@ import {AddTaskButton, CreatedDateRow, DescriptionContainer, DescriptionTaskTogg
 const TileCard = ({tasks, tile}) => {
     const [loading, setLoading] = useState(false)
     const [indexOfTaskToDisplay, setIndexOfTaskToDisplay] = useState(0)
-
-    const handleAddTaskClick = () => {
-
-    }
+    const [showAddTaskModal, setShowAddTaskModal] = useState(false)
 
     return (
         <TileCardContainer>
+            {showAddTaskModal &&
+                <AddTaskModal
+                    setShowAddTaskModal={setShowAddTaskModal}
+                    showAddTaskModal={showAddTaskModal}
+                    tileId={tile.id}
+                />}
             {loading ? <Loading /> : (
                 <>
                     <TaskNumberTypeRow>
@@ -52,7 +56,7 @@ const TileCard = ({tasks, tile}) => {
                     </CreatedDateRow>
                     <TileTaskDivider />
                     <TileButtonRow>
-                        <AddTaskButton>
+                        <AddTaskButton onClick={() => setShowAddTaskModal(true)}>
                             Add Task
                         </AddTaskButton>
                     </TileButtonRow>
