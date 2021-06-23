@@ -24,7 +24,7 @@ const TilesView = () => {
         <BasePageContainer>
             {loaded && (
                 <TilesContainer>
-                    <TileCard tile={tiles[0]}/>
+                    <TileCard tasks={tiles[0].tasks} tile={tiles[0]} />
                 </TilesContainer>
             )}
         </BasePageContainer>

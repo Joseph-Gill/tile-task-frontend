@@ -42,14 +42,22 @@ const LaunchDateStatusRow = styled(TileCardRow)`
 `
 
 
-const TileCard = ({tile}) => {
-    const [tasksToDisplay, setTasksToDisplay] = useState([])
-    const [loading, setLoading] = useState(true)
+const TileCard = ({tasks, tile}) => {
+    const [loading, setLoading] = useState(false)
+    const [indexOfTaskToDisplay, setIndexOfTaskToDisplay] = useState(0)
 
 
     useEffect(() => {
-
+        console.log(tasks)
     }, [])
+
+    const handlePreviousTaskClick = () => {
+        setIndexOfTaskToDisplay(indexOfTaskToDisplay - 1)
+    }
+
+    const handleNextTaskClick = () => {
+        setIndexOfTaskToDisplay(indexOfTaskToDisplay + 1)
+    }
 
     return (
         <TileCardContainer>
@@ -57,23 +65,23 @@ const TileCard = ({tile}) => {
                 <>
                     <TaskNumberTypeRow>
                         <div>
-                            Task# 1 of 2
+                            {`Task #${indexOfTaskToDisplay + 1} of ${tasks.length}`}
                         </div>
                         <div>
-                            Type
+                            {tasks[indexOfTaskToDisplay].type}
                         </div>
                     </TaskNumberTypeRow>
                     <TitleContainer>
-                        Title
+                        {tasks[indexOfTaskToDisplay].title}
                     </TitleContainer>
                     <DescriptionTaskToggleRow>
-                        <div>
+                        <div onClick={handlePreviousTaskClick}>
                             {`<`}
                         </div>
                         <DescriptionContainer>
-                            Description
+                            {tasks[indexOfTaskToDisplay].description}
                         </DescriptionContainer>
-                        <div>
+                        <div onClick={handleNextTaskClick}>
                             {`>`}
                         </div>
                     </DescriptionTaskToggleRow>
@@ -85,10 +93,10 @@ const TileCard = ({tile}) => {
                     </TileButtonRow>
                     <LaunchDateStatusRow>
                         <div>
-                            Launch Date
+                            {tile.launch_date}
                         </div>
                         <div>
-                            Status
+                            {tile.status}
                         </div>
                     </LaunchDateStatusRow>
                 </>)}
