@@ -25,6 +25,7 @@ export const defaultTheme = {
     white: '#FFFFFF',
     black: 'rgba(0,0,0,0.92)',
     iconHoverBackground: 'rgba(211, 216, 221, .5)',
+    modalBackdropColor: 'rgba(0,0,0,0.68)',
     // Box Shadows
     normalBoxShadows:
         [
