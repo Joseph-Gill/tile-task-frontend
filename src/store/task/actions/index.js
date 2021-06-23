@@ -3,9 +3,8 @@ import {getTilesAction} from '../../tile/actions'
 
 
 export const createTaskAction = (taskInfo, tileId) => async (dispatch) => {
-    const config = {}
     try {
-        const response = await Axios.post(`/tasks/tile/${tileId}/`, taskInfo, config)
+        const response = await Axios.post(`/tasks/tile/${tileId}/`, taskInfo)
         if (response.status) {
             await dispatch(getTilesAction())
             return response.data
