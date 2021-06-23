@@ -1,25 +1,10 @@
 import styled from 'styled-components'
 import {BaseButton} from '../../../style/buttons'
+import {ModalInternalContainer} from '../../../style/containers'
 
 
-export const AddTaskInternalContainer = styled.div`
-    align-items: center;
-    background: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.grayFour};
-    border-radius: ${props => props.theme.borderRadius};
-    display: flex;
-    flex-direction: column;
+export const AddTaskInternalContainer = styled(ModalInternalContainer)`
     height: 500px;
-    justify-content: space-between;
-    padding: 20px;
-    width: 375px;
-`
-
-export const ModalButtonContainer = styled.div`
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
 `
 
 export const CreateTaskButton = styled(BaseButton)`

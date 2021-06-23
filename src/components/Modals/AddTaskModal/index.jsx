@@ -6,7 +6,8 @@ import {CancelButton} from '../../../style/buttons'
 import {ModalTitle} from '../../../style/titles'
 import {ModalSelect} from '../../../style/selects'
 import {ModalInput} from '../../../style/inputs'
-import {AddTaskInternalContainer, CreateTaskButton, ModalButtonContainer, ModalTextArea} from './styles'
+import {AddTaskInternalContainer, CreateTaskButton, ModalTextArea} from './styles'
+import {ModalButtonContainer} from '../../../style/containers'
 
 
 const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {

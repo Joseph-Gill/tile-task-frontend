@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
-import {BasePageContainer} from '../../style/containers'
+import TileCard from '../../components/TileCard'
+import AddTileModal from '../../components/Modals/AddTileModal'
 import {useDispatch, useSelector} from 'react-redux'
 import {getTilesAction} from '../../store/tile/actions'
-import TileCard from '../../components/TileCard'
 import {PageTitle} from '../../style/titles'
+import {BaseButton} from '../../style/buttons'
+import {BasePageContainer} from '../../style/containers'
 
 const TilesContainer = styled.div`
     display: grid;
@@ -38,10 +40,21 @@ const HeaderTitle = styled.div`
     width: 10%;
 `
 
+export const AddTileButton = styled(BaseButton)`
+    background: ${props => props.theme.primaryBlue};
+    position: absolute;
+    height: 45px;
+    right: 0;
+    top: -10px;
+    width: 100px;
+
+`
+
 const TilesView = () => {
     const dispatch = useDispatch()
     const tiles = useSelector(state => state.tileReducer.tiles)
     const loaded = useSelector(state => state.tileReducer.loaded)
+    const [showAddTileModal, setShowAddTileModal] = useState(false)
 
     useEffect(() => {
         dispatch(getTilesAction())
@@ -49,6 +62,11 @@ const TilesView = () => {
 
     return (
         <BasePageContainer>
+            {showAddTileModal &&
+                <AddTileModal
+                    setShowAddTileModal={setShowAddTileModal}
+                    showAddTileModal={showAddTileModal}
+                />}
             {loaded && (
                 <>
                     <HeaderContainer>
@@ -57,6 +75,7 @@ const TilesView = () => {
                             <PageTitle>Tiles</PageTitle>
                         </HeaderTitle>
                         <HeaderLowerBar />
+                        <AddTileButton onClick={() => setShowAddTileModal(true)}>Add Tile</AddTileButton>
                     </HeaderContainer>
                     <TilesContainer>
                         {tiles.map(tile => <TileCard key={tile.id} tasks={tile.tasks} tile={tile} />)}

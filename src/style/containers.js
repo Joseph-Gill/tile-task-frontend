@@ -11,3 +11,22 @@ export const BasePageContainer = styled.div`
     align-items: center;
     background: ${props => props.theme.grayFive};
 `
+
+export const ModalInternalContainer = styled.div`
+    align-items: center;
+    background: ${props => props.theme.white};
+    border: 1px solid ${props => props.theme.grayFour};
+    border-radius: ${props => props.theme.borderRadius};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    width: 375px;
+`
+
+export const ModalButtonContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+`
