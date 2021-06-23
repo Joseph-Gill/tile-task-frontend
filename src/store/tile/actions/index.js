@@ -13,6 +13,7 @@ export const getTilesAction = () => async (dispatch) => {
     try {
         const response = await Axios.get(`/tiles/all/`)
         dispatch(getTiles(response.data))
+        return response.data
     } catch (e) {
         console.log('Error getting all tiles>', e)
     }
