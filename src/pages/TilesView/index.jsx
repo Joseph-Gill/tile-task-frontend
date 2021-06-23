@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import {BasePageContainer} from '../../style/containers'
 import {useDispatch, useSelector} from 'react-redux'
 import {getTilesAction} from '../../store/tile/actions'
+import TileCard from '../../components/TileCard'
 
 const TilesContainer = styled.div`
-    background: ${props => props.theme.white};
     height: 750px;
     width: 750px;
 `
@@ -24,7 +24,7 @@ const TilesView = () => {
         <BasePageContainer>
             {loaded && (
                 <TilesContainer>
-                    {console.log(tiles)}
+                    <TileCard tile={tiles[0]}/>
                 </TilesContainer>
             )}
         </BasePageContainer>
