@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {TileCardContainer, TileCardRow, TileTextContainer} from './styles'
+import Loading from '../Loading'
 
 
 const TaskNumberTypeRow = styled(TileCardRow)`
@@ -41,45 +42,56 @@ const LaunchDateStatusRow = styled(TileCardRow)`
 `
 
 
-const TileCard = () => {
+const TileCard = ({tile}) => {
+    const [tasksToDisplay, setTasksToDisplay] = useState([])
+    const [loading, setLoading] = useState(true)
+
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <TileCardContainer>
-            <TaskNumberTypeRow>
-                <div>
-                    Task# 1 of 2
-                </div>
-                <div>
-                    Type
-                </div>
-            </TaskNumberTypeRow>
-            <TitleContainer>
-                Title
-            </TitleContainer>
-            <DescriptionTaskToggleRow>
-                <div>
-                    {`<`}
-                </div>
-                <DescriptionContainer>
-                    Description
-                </DescriptionContainer>
-                <div>
-                    {`>`}
-                </div>
-            </DescriptionTaskToggleRow>
-            <TileTaskDivider />
-            <TileButtonRow>
-                <AddTaskButton>
-                    Add Task
-                </AddTaskButton>
-            </TileButtonRow>
-            <LaunchDateStatusRow>
-                <div>
-                    Launch Date
-                </div>
-                <div>
-                    Status
-                </div>
-            </LaunchDateStatusRow>
+            {loading ? <Loading /> : (
+                <>
+                    <TaskNumberTypeRow>
+                        <div>
+                            Task# 1 of 2
+                        </div>
+                        <div>
+                            Type
+                        </div>
+                    </TaskNumberTypeRow>
+                    <TitleContainer>
+                        Title
+                    </TitleContainer>
+                    <DescriptionTaskToggleRow>
+                        <div>
+                            {`<`}
+                        </div>
+                        <DescriptionContainer>
+                            Description
+                        </DescriptionContainer>
+                        <div>
+                            {`>`}
+                        </div>
+                    </DescriptionTaskToggleRow>
+                    <TileTaskDivider />
+                    <TileButtonRow>
+                        <AddTaskButton>
+                            Add Task
+                        </AddTaskButton>
+                    </TileButtonRow>
+                    <LaunchDateStatusRow>
+                        <div>
+                            Launch Date
+                        </div>
+                        <div>
+                            Status
+                        </div>
+                    </LaunchDateStatusRow>
+                </>)}
         </TileCardContainer>
     )
 }
