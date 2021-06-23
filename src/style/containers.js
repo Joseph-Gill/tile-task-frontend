@@ -7,7 +7,7 @@ export const BasePageContainer = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     background: ${props => props.theme.grayFive};
 `
