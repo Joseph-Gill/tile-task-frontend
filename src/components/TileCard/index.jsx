@@ -13,6 +13,9 @@ const TileCard = ({tasks, tile}) => {
     const [loading, setLoading] = useState(false)
     const [indexOfTaskToDisplay, setIndexOfTaskToDisplay] = useState(0)
 
+    const handleAddTaskClick = () => {
+
+    }
 
     return (
         <TileCardContainer>
