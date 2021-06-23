@@ -21,6 +21,7 @@ export const defaultTheme = {
     grayFive: '#F6F7F8',
     graySix: '#FAFAFA',
     primaryBlue: '#00709F',
+    blueHover: '#004866',
     white: '#FFFFFF',
     black: 'rgba(0,0,0,0.92)',
     iconHoverBackground: 'rgba(211, 216, 221, .5)',
@@ -55,4 +56,6 @@ export const defaultTheme = {
         ],
     // Fonts
     robotoFontFamily: 'Roboto, sans-serif',
+    // Border Radius
+    buttonBorderRadius: '1.5rem',
 }

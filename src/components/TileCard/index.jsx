@@ -4,6 +4,7 @@ import {TileCardContainer, TileCardRow, TileTextContainer} from './styles'
 import Loading from '../Loading'
 import previousTask from '../../assets/icons/scroll_left_icon.svg'
 import nextTask from '../../assets/icons/scroll_right_icon.svg'
+import {BaseButton} from '../../style/buttons'
 
 
 const TaskNumberTypeRow = styled(TileCardRow)`
@@ -33,10 +34,10 @@ const TileButtonRow = styled(TileCardRow)`
     position: relative;
 `
 
-const AddTaskButton = styled.button`
+const AddTaskButton = styled(BaseButton)`
     background: ${props => props.theme.primaryBlue};
     height: 45px;
-    width: 75px;
+    width: 100px;
 `
 
 const LaunchDateStatusRow = styled(TileCardRow)`
