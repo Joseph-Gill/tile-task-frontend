@@ -23,6 +23,7 @@ export const defaultTheme = {
     primaryBlue: '#00709F',
     white: '#FFFFFF',
     black: 'rgba(0,0,0,0.92)',
+    iconHoverBackground: 'rgba(211, 216, 221, .5)',
     // Box Shadows
     normalBoxShadows:
         [
