@@ -106,3 +106,10 @@ export const NextImage = styled(PreviousImage)`
     margin-left: 3px;
     margin-right: 0;
 `
+
+export const NoTasksPlaceholder = styled.div`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 245px;
+`

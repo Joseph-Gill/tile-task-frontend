@@ -6,8 +6,11 @@ import {getTilesAction} from '../../store/tile/actions'
 import TileCard from '../../components/TileCard'
 
 const TilesContainer = styled.div`
-    height: 750px;
-    width: 750px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 `
 
 
@@ -24,7 +27,7 @@ const TilesView = () => {
         <BasePageContainer>
             {loaded && (
                 <TilesContainer>
-                    <TileCard tasks={tiles[0].tasks} tile={tiles[0]} />
+                    {tiles.map(tile => <TileCard key={tile.id} tasks={tile.tasks} tile={tile} />)}
                 </TilesContainer>
             )}
         </BasePageContainer>
