@@ -1,51 +1,13 @@
 import React, {useState} from 'react'
 import ModalExternalContainer from '../ModalComponents/ModalExternalContainer'
-import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import {createTaskAction} from '../../../store/task/actions'
-import {BaseButton, CancelButton} from '../../../style/buttons'
+import {CancelButton} from '../../../style/buttons'
 import {ModalTitle} from '../../../style/titles'
 import {ModalSelect} from '../../../style/selects'
 import {ModalInput} from '../../../style/inputs'
+import {AddTaskInternalContainer, CreateTaskButton, ModalButtonContainer, ModalTextArea} from './styles'
 
-
-const AddTaskInternalContainer = styled.div`
-    align-items: center;
-    background: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.grayFour};
-    border-radius: ${props => props.theme.borderRadius};
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    justify-content: space-between;
-    padding: 20px;
-    width: 375px;
-`
-
-const ModalButtonContainer = styled.div`
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-`
-
-export const CreateTaskButton = styled(BaseButton)`
-    background: ${props => props.theme.primaryBlue};
-    height: 45px;
-    width: 80px;
-`
-
-export const ModalTextArea = styled.textarea`
-    background: ${props => props.theme.graySix};
-    border: 1px solid ${props => props.theme.grayFour};
-    border-radius: ${props => props.theme.borderRadius};
-    font-size: 14px;
-    line-height: 19px;
-    height: 200px;
-    width: 100%;
-    padding: 10px;
-    resize: none;
-`
 
 const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
     const dispatch = useDispatch()
