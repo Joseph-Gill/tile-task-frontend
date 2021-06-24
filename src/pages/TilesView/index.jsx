@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getTilesAction} from '../../store/tile/actions'
 import {PageTitle} from '../../style/titles'
 import {BasePageContainer} from '../../style/containers'
-import {AddTileButton, FilterLabel, FilterTilesSelect, HeaderContainer, HeaderLowerBar, HeaderTitle, TilesContainer} from './styles'
+import {AddTileButton, FilterLabel, FilterTilesSelect, HeaderContainer, HeaderLowerBar, HeaderTitle, NoTilesToDisplayContainer, TilesContainer} from './styles'
 
 
 const TilesView = () => {
@@ -21,12 +21,26 @@ const TilesView = () => {
     }, [])
 
     const renderTiles = () => {
+        if (!tiles.length) {
+            return (
+                <NoTilesToDisplayContainer>
+                    No Tiles to Display
+                </NoTilesToDisplayContainer>
+            )
+        }
         if (!statusFilter) {
             return tiles.map(tile => <TileCard key={tile.id} tasks={tile.tasks} tile={tile} />)
         } else {
-            return tiles
-                .filter(tile => tile.status === statusFilter)
-                .map(tile => <TileCard key={tile.id} tasks={tile.tasks} tile={tile} />)
+            const filteredTiles = tiles.filter(tile => tile.status === statusFilter)
+            if (!filteredTiles.length) {
+                return (
+                    <NoTilesToDisplayContainer>
+                        No Tiles with this Status
+                    </NoTilesToDisplayContainer>
+                )
+            } else {
+                return filteredTiles.map(tile => <TileCard key={tile.id} tasks={tile.tasks} tile={tile} />)
+            }
         }
     }
 

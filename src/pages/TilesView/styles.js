@@ -9,6 +9,7 @@ export const TilesContainer = styled.div`
     grid-auto-rows: auto;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    position: relative;
 `
 
 export const HeaderContainer = styled.div`
@@ -57,4 +58,10 @@ export const FilterLabel = styled.span`
     font-size: 12px;
     top: -28px;
     left: 5px;
+`
+
+export const NoTilesToDisplayContainer = styled.div`
+    left: -48px;
+    position: absolute;
+    width: 200px;
 `
