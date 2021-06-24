@@ -34,7 +34,7 @@ export const createTileAction = tileInfo => async (dispatch) => {
 export const deleteTileAction = tileId => async (dispatch) => {
     try {
         const response = await Axios.delete(`/tiles/tile/${tileId}/`)
-        if (response.status) {
+        if (response.status === 204) {
             await dispatch(getTilesAction())
             return true
         }
