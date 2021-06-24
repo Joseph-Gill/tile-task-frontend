@@ -34,3 +34,7 @@ export const ModalButtonContainer = styled.div`
 export const AddEditTileInternalContainer = styled(ModalInternalContainer)`
     height: 400px;
 `
+
+export const AddEditTaskInternalContainer = styled(ModalInternalContainer)`
+    height: 500px;
+`

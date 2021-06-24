@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 import {BaseButton} from '../../../style/buttons'
-import {ModalInternalContainer} from '../../../style/containers'
 
-
-export const AddTaskInternalContainer = styled(ModalInternalContainer)`
-    height: 500px;
-`
 
 export const CreateTaskButton = styled(BaseButton)`
     background: ${props => props.theme.primaryBlue};

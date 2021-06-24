@@ -6,8 +6,8 @@ import {CancelButton} from '../../../style/buttons'
 import {ModalTitle} from '../../../style/titles'
 import {ModalSelect} from '../../../style/selects'
 import {ModalInput} from '../../../style/inputs'
-import {AddTaskInternalContainer, CreateTaskButton, ModalTextArea} from './styles'
-import {ModalButtonContainer} from '../../../style/containers'
+import {CreateTaskButton, ModalTextArea} from './styles'
+import {AddEditTaskInternalContainer, ModalButtonContainer} from '../../../style/containers'
 
 
 const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
@@ -32,7 +32,7 @@ const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
             setModalView={setShowAddTaskModal}
             showModalView={showAddTaskModal}
         >
-            <AddTaskInternalContainer>
+            <AddEditTaskInternalContainer>
                 <ModalTitle>Add a new Task</ModalTitle>
                 <ModalInput
                     onChange={(e) => setNewTaskInfo({...newTaskInfo, title: e.target.value})}
@@ -58,7 +58,7 @@ const AddTaskModal = ({showAddTaskModal, setShowAddTaskModal, tileId}) => {
                     <CreateTaskButton disabled={loading} onClick={handleCreateTaskClick}>Create</CreateTaskButton>
                     <CancelButton disabled={loading} onClick={() => setShowAddTaskModal(false)}>Cancel</CancelButton>
                 </ModalButtonContainer>
-            </AddTaskInternalContainer>
+            </AddEditTaskInternalContainer>
         </ModalExternalContainer>
     )
 }
