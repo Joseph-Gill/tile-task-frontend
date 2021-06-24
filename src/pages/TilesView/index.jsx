@@ -35,7 +35,7 @@ const TilesView = () => {
             if (!filteredTiles.length) {
                 return (
                     <NoTilesToDisplayContainer>
-                        No Tiles with this Status
+                        No Tiles match filter
                     </NoTilesToDisplayContainer>
                 )
             } else {
