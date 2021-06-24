@@ -46,7 +46,7 @@ export const deleteTileAction = tileId => async (dispatch) => {
 export const editTileAction = (tileInfo, tileId) => async (dispatch) => {
     try {
         const response = await Axios.patch(`tiles/tile/${tileId}/`, tileInfo)
-        if (response.status) {
+        if (response.status === 200) {
             await dispatch(getTilesAction())
             return true
         }
