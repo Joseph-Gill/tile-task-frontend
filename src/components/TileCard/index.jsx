@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import AddTaskModal from '../Modals/AddTaskModal'
 import {createDateInfo} from '../../helpers'
-import previousTask from '../../assets/icons/scroll_left_icon.svg'
+import pencil from '../../assets/icons/pencil.svg'
+import trashCan from '../../assets/icons/trash-can.svg'
 import nextTask from '../../assets/icons/scroll_right_icon.svg'
+import previousTask from '../../assets/icons/scroll_left_icon.svg'
 import {
-    AddTaskButton, CreatedDateRow, DescriptionContainer, DescriptionTaskToggleRow, LaunchDateStatusRow, NextImage,
+    AddTaskButton, CreatedDateRow, DeleteEditImage, DeleteImageContainer, DescriptionContainer, DescriptionTaskToggleRow, EditImageContainer, LaunchDateStatusRow, NextImage,
     NextImageContainer, NoTasksPlaceholder, PreviousImage, PreviousImageContainer, TaskNumberTypeRow, TileButtonRow, TileCardContainer,
     TileTaskDivider, TitleContainer
 } from './styles'
@@ -60,6 +62,12 @@ const TileCard = ({tasks, tile}) => {
                 <AddTaskButton onClick={() => setShowAddTaskModal(true)}>
                     Add Task
                 </AddTaskButton>
+                <DeleteImageContainer>
+                    <DeleteEditImage alt='delete' src={trashCan} />
+                </DeleteImageContainer>
+                <EditImageContainer>
+                    <DeleteEditImage alt='edit' src={pencil} />
+                </EditImageContainer>
             </TileButtonRow>
             <LaunchDateStatusRow>
                 <div>

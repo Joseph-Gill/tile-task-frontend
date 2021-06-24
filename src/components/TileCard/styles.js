@@ -113,3 +113,19 @@ export const NoTasksPlaceholder = styled.div`
     display: flex;
     height: 245px;
 `
+
+export const DeleteImageContainer = styled(ImageContainer)`
+    right: 50px;
+    top: -15px;
+`
+
+export const DeleteEditImage = styled.img`
+    height: auto;
+    width: 24px;
+`
+
+export const EditImageContainer = styled(ImageContainer)`
+    right: 0;
+    top: -15px;
+`
+
