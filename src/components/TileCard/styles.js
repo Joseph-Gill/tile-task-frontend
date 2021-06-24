@@ -119,11 +119,6 @@ export const DeleteImageContainer = styled(ImageContainer)`
     top: -15px;
 `
 
-export const DeleteEditImage = styled.img`
-    height: auto;
-    width: 24px;
-`
-
 export const EditImageContainer = styled(ImageContainer)`
     right: 50px;
     top: -15px;

@@ -2,18 +2,19 @@ import React, {useState} from 'react'
 import AddTaskModal from '../Modals/AddTaskModal'
 import DeleteItemDropdown from '../Dropdowns/DeleteItemDropdown'
 import {createDateInfo} from '../../helpers'
-import pencil from '../../assets/icons/pencil.svg'
 import nextTask from '../../assets/icons/scroll_right_icon.svg'
 import previousTask from '../../assets/icons/scroll_left_icon.svg'
-import {AddTaskButton, CreatedDateRow, DeleteEditImage, DeleteImageContainer, DescriptionContainer, DescriptionTaskToggleRow, EditImageContainer, LaunchDateStatusRow, NextImage,
+import {AddTaskButton, CreatedDateRow, DeleteImageContainer, DescriptionContainer, DescriptionTaskToggleRow, EditImageContainer, LaunchDateStatusRow, NextImage,
     NextImageContainer, NoTasksPlaceholder, PreviousImage, PreviousImageContainer, TaskNumberTypeRow, TileButtonRow, TileCardContainer,
     TileTaskDivider, TitleContainer} from './styles'
+import EditItemDropdown from '../Dropdowns/EditItemDropdown'
 
 
 const TileCard = ({tasks, tile}) => {
     const [indexOfTaskToDisplay, setIndexOfTaskToDisplay] = useState(0)
     const [showAddTaskModal, setShowAddTaskModal] = useState(false)
     const [showDeleteDropdown, setShowDeleteDropdown] = useState(false)
+    const [showEditDropdown, setShowEditDropdown] = useState(false)
 
     return (
         <TileCardContainer>
@@ -68,7 +69,10 @@ const TileCard = ({tasks, tile}) => {
                     />
                 </DeleteImageContainer>
                 <EditImageContainer>
-                    <DeleteEditImage alt='edit' src={pencil} />
+                    <EditItemDropdown
+                        setShowEditDropdown={setShowEditDropdown}
+                        showEditDropdown={showEditDropdown}
+                    />
                 </EditImageContainer>
             </TileButtonRow>
             <LaunchDateStatusRow>
