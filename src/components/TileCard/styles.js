@@ -115,7 +115,7 @@ export const NoTasksPlaceholder = styled.div`
 `
 
 export const DeleteImageContainer = styled(ImageContainer)`
-    right: 50px;
+    right: 150px;
     top: -15px;
 `
 
@@ -125,7 +125,7 @@ export const DeleteEditImage = styled.img`
 `
 
 export const EditImageContainer = styled(ImageContainer)`
-    right: 0;
+    right: 50px;
     top: -15px;
 `
 
