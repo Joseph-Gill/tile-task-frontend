@@ -30,3 +30,7 @@ export const ModalButtonContainer = styled.div`
     justify-content: space-evenly;
     width: 100%;
 `
+
+export const AddEditTileInternalContainer = styled(ModalInternalContainer)`
+    height: 400px;
+`

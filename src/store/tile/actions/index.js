@@ -42,3 +42,15 @@ export const deleteTileAction = tileId => async (dispatch) => {
         console.log('Error deleting specified tile>', e)
     }
 }
+
+export const editTileAction = (tileInfo, tileId) => async (dispatch) => {
+    try {
+        const response = await Axios.patch(`tiles/tile/${tileId}/`, tileInfo)
+        if (response.status) {
+            await dispatch(getTilesAction())
+            return true
+        }
+    } catch (e) {
+        console.log('Error editing specified tile>', e)
+    }
+}

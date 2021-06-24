@@ -33,3 +33,9 @@ export const CancelButton = styled(BaseButton)`
         font-weight: 500;
     }
 `
+
+export const SaveButton = styled(BaseButton)`
+    background: ${props => props.theme.green};
+    height: 45px;
+    width: 80px;
+`

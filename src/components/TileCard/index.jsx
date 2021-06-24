@@ -75,8 +75,8 @@ const TileCard = ({tasks, tile}) => {
                     <EditItemDropdown
                         setShowEditDropdown={setShowEditDropdown}
                         showEditDropdown={showEditDropdown}
-                        task={tasks[indexOfTaskToDisplay]?.id}
-                        tileId={tile.id}
+                        task={tasks[indexOfTaskToDisplay]}
+                        tile={tile}
                     />
                 </EditImageContainer>
             </TileButtonRow>

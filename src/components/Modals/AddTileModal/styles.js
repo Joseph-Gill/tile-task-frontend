@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import {ModalInternalContainer} from '../../../style/containers'
 import {BaseButton} from '../../../style/buttons'
 
-
-export const AddTileInternalContainer = styled(ModalInternalContainer)`
-    height: 400px;
-`
 
 export const CreateTileButton = styled(BaseButton)`
     background: ${props => props.theme.primaryBlue};

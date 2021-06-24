@@ -5,3 +5,8 @@ export const createDateInfo = date => date.slice(0,10)
 export const convertDate = date => {
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
+
+// Used by components to convert a date string into a Date object
+export const createDate = date => {
+    return new Date(parseInt(date.slice(0,5)), (parseInt(date.slice(5,7)) - 1), parseInt(date.slice(-2)))
+}

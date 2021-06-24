@@ -23,6 +23,7 @@ export const defaultTheme = {
     primaryBlue: '#00709F',
     blueHover: '#004866',
     white: '#FFFFFF',
+    green: '#00993B',
     black: 'rgba(0,0,0,0.92)',
     iconHoverBackground: 'rgba(211, 216, 221, .5)',
     modalBackdropColor: 'rgba(0,0,0,0.68)',
