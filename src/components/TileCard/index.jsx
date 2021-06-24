@@ -66,12 +66,16 @@ const TileCard = ({tasks, tile}) => {
                     <DeleteItemDropdown
                         setShowDeleteDropdown={setShowDeleteDropdown}
                         showDeleteDropdown={showDeleteDropdown}
+                        taskId={tasks[indexOfTaskToDisplay]?.id}
+                        tileId={tile.id}
                     />
                 </DeleteImageContainer>
                 <EditImageContainer>
                     <EditItemDropdown
                         setShowEditDropdown={setShowEditDropdown}
                         showEditDropdown={showEditDropdown}
+                        task={tasks[indexOfTaskToDisplay]?.id}
+                        tileId={tile.id}
                     />
                 </EditImageContainer>
             </TileButtonRow>

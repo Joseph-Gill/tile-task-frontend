@@ -30,3 +30,15 @@ export const createTileAction = tileInfo => async (dispatch) => {
         console.log('Error creating new tile>', e)
     }
 }
+
+export const deleteTileAction = tileId => async (dispatch) => {
+    try {
+        const response = await Axios.delete(`/tiles/tile/${tileId}/`)
+        if (response.status) {
+            await dispatch(getTilesAction())
+            return true
+        }
+    } catch (e) {
+        console.log('Error deleting specified tile>', e)
+    }
+}
